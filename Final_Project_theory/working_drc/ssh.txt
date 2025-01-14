@@ -1,0 +1,107 @@
+ssh
+==========================
+school 2
+==========================
+
+
+
+school 3
+
+enable password sels123
+enable secret sels123
+
+line con 0
+password sels123con
+login local
+line aux 0
+password sels123aux
+login local
+banner motd "Unauthorized Access Prohibited- config"
+
+
+ip domain-name sels.com
+username selsRouter password sels123admin
+
+
+ crypto key generate rsa 
+1024
+
+line vty 0 15
+password sels123vty
+login local
+transport input ssh
+exit
+
+ip ssh version 2
+service password-encryption
+do wr
+
+
+
+
+school 4
+===========
+
+
+enable password slass123
+enable secret slass123secret
+
+line con 0
+password slass123con
+login local
+line aux 0
+password slass123aux
+login local
+
+ip domain-name slass.com
+username selsRouter password slass123admin
+banner motd "Unauthorized Access Prohibited- config"
+
+ crypto key generate rsa 
+1024
+
+line vty 0 15
+password slass123vty
+login local
+transport input ssh
+exit
+
+ip ssh version 2
+service password-encryption
+do wr
+
+
+
+school 5
+===========
+1st login pass: spph123admin
+2nd login pass: spph123secret
+
+enable password spph123
+enable secret spph123secret
+
+line con 0
+password spph123con
+login local
+line aux 0
+password spph123aux
+login local
+
+ip domain-name spph.com
+username spphRouter password spph123admin
+banner motd "Unauthorized Access Prohibited   ~ iubADMIN"
+
+ crypto key generate rsa 
+1024
+
+line vty 0 15
+password spph123vty
+login local
+transport input ssh
+exit
+
+ip ssh version 2
+service password-encryption
+do wr
+
+

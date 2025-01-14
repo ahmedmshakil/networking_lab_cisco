@@ -1,0 +1,85 @@
+Inter-VLan
+930
+helendrain
+
+shoping center
+792
+8.55
+
+
+6. 1.80
+730
+7.50
+9. commutive
+10. afternoon
+
+
+Switch
+
+en
+configure terminal
+hostname SLAW-S6
+
+vlan 10
+name ADMIN
+vlan 20
+name FACULTY
+vlan 30
+name CLASSROOM
+vlan 40
+name LAB
+exit
+
+int range f0/1-6
+switchport mode access
+switchport access vlan 10
+exit
+int range f0/7-12
+switchport mode access
+switchport access vlan 20
+exit
+int range f0/13-18
+switchport mode access
+switchport access vlan 30
+exit
+int range f0/19-24
+switchport mode access
+switchport access vlan 40
+exit
+
+int g0/1
+switchport mode trunk
+exit
+do wr
+
+
+Router
+
+
+en
+configure terminal
+hostname SLAW-R6
+int g0/1
+no shutdown
+exit
+
+int g0/1.10
+encapsulation dot1q 10
+ip address 192.168.28.62 255.255.255.192
+exit
+int g0/1.20
+encapsulation dot1q 20
+ip address 192.168.28.126 255.255.255.192
+exit
+
+int g0/1.30
+encapsulation dot1q 30
+ip address 192.168.28.190 255.255.255.192
+exit
+
+int g0/1.40
+encapsulation dot1q 40
+ip address 192.168.28.254 255.255.255.192
+exit
+
+do wr

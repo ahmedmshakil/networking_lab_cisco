@@ -1,0 +1,138 @@
+IUB
+-------------------------------
+Vlan Create on switch:
+-------------------------------
+en
+configure terminal
+
+hostname S1
+
+vlan 2
+name SETS
+vlan 3
+name SBE
+vlan 4
+name SLASS
+
+int range f0/1-8
+switchmode mode access
+switchport access vlan 2
+exit
+int range f0/9-16
+switchmode mode access
+switchport access vlan 3
+exit
+int range f0/17-24
+switchmode mode access
+switchport access vlan 4
+exit
+
+int g0/1
+switchport mode trunk
+exit
+
+do wr
+
+
+ROUTER:
+-------------------------
+
+en
+configure terminal
+hostname R1
+
+int g0/0
+no shutdown
+
+int g0/0.2
+encapsulation dot1q 2
+ip address 192.168.10.62 255.255.255.192
+exit
+int g0/0.3
+encapsulation dot1q 3
+ip address 192.168.10.126 255.255.255.192
+exit
+int g0/0.4
+encapsulation dot1q 4
+ip address 192.168.10.190 255.255.255.192
+exit
+
+do wr
+
+int g0/0.2
+encapsulation dot1q 2
+ip address 192.168.12.62 255.255.255.192
+exit
+int g0/0.3
+encapsulation dot1q 3
+ip address 192.168.12.126 255.255.255.192
+exit
+int g0/0.4
+encapsulation dot1q 4
+ip address 192.168.12.190 255.255.255.192
+exit
+
+do wr
+
+
+
+
+
+______________________________________
+Inter-Routing
+------------------------------
+
+R1
+------------------------------
+router rip
+version 2
+
+
+network 192.168.10.0
+network 192.168.10.64
+network 192.168.10.128
+network 200.100.50.8
+
+
+
+R2
+-----------------------------
+router rip
+version 2
+
+
+network 192.168.10.0
+network 192.168.10.64
+network 192.168.10.128
+network 200.100.50.8
+network 200.100.50.12
+
+
+network 192.168.11.0
+network 200.100.50.8
+network 200.100.50.12
+R3
+------------------------------
+router rip
+version 2
+
+network 192.168.10.0
+network 192.168.10.64
+network 192.168.10.128
+network 200.100.50.12
+
+
+
+network 192.168.12.0
+network 192.168.12.64
+network 192.168.12.128
+network 200.100.50.12
+
+
+
+
+
+
+
+
+

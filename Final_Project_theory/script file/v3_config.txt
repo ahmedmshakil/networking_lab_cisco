@@ -1,0 +1,270 @@
+router
+--------
+
+int g0/1
+ip address 192.168.24.62 255.255.255.192
+
+Main Router End 
+---------------------------
+int g1/0
+ip address 192.168.31.1 255.255.255.252
+no shutdown
+int g2/0
+ip address 192.168.31.5 255.255.255.252
+no shutdown
+int g3/0
+ip address 192.168.31.9 255.255.255.252
+no shutdown
+int g4/0
+ip address 192.168.31.13 255.255.255.252
+no shutdown
+int g5/0
+ip address 192.168.31.17 255.255.255.252
+no shutdown
+int g6/0
+ip address 192.168.31.21 255.255.255.252
+no shutdown
+int g7/0
+ip address 192.168.31.25 255.255.255.252
+no shutdown
+
+
+Sub router end
+===========
+School-1
+------------
+int g0/0
+ip address 192.168.31.2 255.255.255.252
+no shutdown
+exit
+do wr
+
+School-2
+------------
+int g0/0
+ip address 192.168.31.6 255.255.255.252
+no shutdown
+exit
+do wr
+
+School-3
+------------
+int g0/0
+ip address 192.168.31.10 255.255.255.252
+no shutdown
+exit
+do wr
+
+
+
+School-4
+------------
+int g0/0
+ip address 192.168.31.14 255.255.255.252
+no shutdown
+exit
+do wr
+
+
+School-5
+------------
+int g0/0
+ip address 192.168.31.18 255.255.255.252
+no shutdown
+exit
+do wr
+
+
+School-6
+------------
+int g0/0
+ip address 192.168.31.22 255.255.255.252
+no shutdown
+exit
+do wr
+
+
+School-7
+------------
+int g0/0
+ip address 192.168.31.26 255.255.255.252
+no shutdown
+exit
+do wr
+
+
+===============
+OSPF configuration
+============
+
+School-01
+-----------------
+
+router ospf 1
+router-id 1.1.1.1
+network 192.168.24.0 0.0.0.63 area 0
+network 192.168.24.64 0.0.0.63 area 0
+network 192.168.24.128 0.0.0.63 area 0
+network 192.168.24.192 0.0.0.63 area 0
+network 192.168.31.0 0.0.0.3 area 0
+
+
+School-02
+-----------------
+
+router ospf 1
+router-id 2.2.2.2
+network 192.168.25.0 0.0.0.63 area 0
+network 192.168.25.64 0.0.0.63 area 0
+network 192.168.25.128 0.0.0.63 area 0
+network 192.168.25.192 0.0.0.63 area 0
+network 192.168.31.4 0.0.0.3 area 0
+
+
+School-03
+-----------------
+
+router ospf 1
+router-id 3.3.3.3
+network 192.168.26.0 0.0.0.63 area 0
+network 192.168.26.64 0.0.0.63 area 0
+network 192.168.26.128 0.0.0.63 area 0
+network 192.168.26.192 0.0.0.63 area 0
+network 192.168.31.8 0.0.0.3 area 0
+
+
+
+School-04
+-----------------
+
+router ospf 1
+router-id 4.4.4.4
+network 192.168.27.0 0.0.0.63 area 0
+network 192.168.27.64 0.0.0.63 area 0
+network 192.168.27.128 0.0.0.63 area 0
+network 192.168.27.192 0.0.0.63 area 0
+network 192.168.31.12 0.0.0.3 area 0
+
+
+
+School-05
+-----------------
+
+router ospf 1
+router-id 5.5.5.5
+network 192.168.28.0 0.0.0.63 area 0
+network 192.168.28.64 0.0.0.63 area 0
+network 192.168.28.128 0.0.0.63 area 0
+network 192.168.28.192 0.0.0.63 area 0
+network 192.168.31.16 0.0.0.3 area 0
+
+
+
+School-06
+-----------------
+
+router ospf 1
+router-id 6.6.6.6
+network 192.168.29.0 0.0.0.63 area 0
+network 192.168.29.64 0.0.0.63 area 0
+network 192.168.29.128 0.0.0.63 area 0
+network 192.168.29.192 0.0.0.63 area 0
+network 192.168.31.20 0.0.0.3 area 0
+
+
+
+
+School-07
+-----------------
+
+router ospf 1
+router-id 7.7.7.7
+network 192.168.30.0 0.0.0.63 area 0
+network 192.168.30.64 0.0.0.63 area 0
+network 192.168.30.128 0.0.0.63 area 0
+network 192.168.30.192 0.0.0.63 area 0
+network 192.168.31.24 0.0.0.3 area 0
+
+
+Main Router
+
+router ospf 1
+router-id 10.10.10.10
+network 192.168.31.0 0.0.0.3 area 0
+network 192.168.31.4 0.0.0.3 area 0
+network 192.168.31.8 0.0.0.3 area 0
+network 192.168.31.12 0.0.0.3 area 0
+network 192.168.31.16 0.0.0.3 area 0
+network 192.168.31.20 0.0.0.3 area 0
+network 192.168.31.24 0.0.0.3 area 0
+network 171.122.12.120 0.0.0.7 area 0
+network 200.100.50.12 0.0.0.3 area 0
+
+
+
+=============================================
+NAT
+================================================
+
+! Configure NAT pools
+ip nat pool SETS_POOL 171.122.12.65 171.122.12.70 netmask 255.255.255.248
+ip nat pool SBE_POOL 171.122.12.73 171.122.12.78 netmask 255.255.255.248
+ip nat pool SELS_POOL 171.122.12.81 171.122.12.86 netmask 255.255.255.248
+ip nat pool SLASS_POOL 171.122.12.89 171.122.12.94 netmask 255.255.255.248
+ip nat pool SPPH_POOL 171.122.12.97 171.122.12.102 netmask 255.255.255.248
+ip nat pool SOL_POOL 171.122.12.105 171.122.12.110 netmask 255.255.255.248
+ip nat pool ADMINISTRATIVE_POOL 171.122.12.113 171.122.12.118 netmask 255.255.255.248
+
+! Configure access lists for private networks
+access-list 1 permit 192.168.24.0 0.0.0.255
+access-list 2 permit 192.168.25.0 0.0.0.255
+access-list 3 permit 192.168.26.0 0.0.0.255
+access-list 4 permit 192.168.27.0 0.0.0.255
+access-list 5 permit 192.168.28.0 0.0.0.255
+access-list 6 permit 192.168.29.0 0.0.0.255
+access-list 7 permit 192.168.30.0 0.0.0.255
+
+! NAT overload configuration for each school and division
+ip nat inside source list 1 pool SETS_POOL overload
+ip nat inside source list 2 pool SBE_POOL overload
+ip nat inside source list 3 pool SELS_POOL overload
+ip nat inside source list 4 pool SLASS_POOL overload
+ip nat inside source list 5 pool SPPH_POOL overload
+ip nat inside source list 6 pool SOL_POOL overload
+ip nat inside source list 7 pool ADMINISTRATIVE_POOL overload
+
+! Interface NAT configurations
+interface GigabitEthernet1/0
+ description Inside interface for SETS ROUTER
+ ip nat inside
+
+interface GigabitEthernet2/0
+ description Inside interface for SBE ROUTER
+ ip nat inside
+
+interface GigabitEthernet3/0
+ description Inside interface for SELS ROUTER
+ ip nat inside
+
+interface GigabitEthernet4/0
+ description Inside interface for SLASS ROUTER
+ ip nat inside
+
+interface GigabitEthernet5/0
+ description Inside interface for SPPH ROUTER
+ ip nat inside
+
+interface GigabitEthernet6/0
+ description Inside interface for SOL ROUTER
+ ip nat inside
+
+interface GigabitEthernet7/0
+ description Inside interface for ADMINISTRATIVE ROUTER
+ ip nat inside
+
+interface Serial9/0
+ description Outside interface to ISP ROUTER
+ ip nat outside
+
+
+

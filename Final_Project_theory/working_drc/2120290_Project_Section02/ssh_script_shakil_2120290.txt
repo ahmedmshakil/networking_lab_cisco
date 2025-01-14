@@ -1,0 +1,291 @@
+===================================
+School 1
+===================================
+1st login pass: sets290
+2nd login pass: admin290
+------------------------------------------
+>
+enable password sets123
+enable secret admin290
+
+line con 0
+password sets123con
+login local
+line aux 0
+password sets123aux
+login local
+
+ip domain-name sets.iub.com
+username setsRouter password sets290
+banner motd "Unauthorized Access Prohibited   ~ iubADMIN"
+
+ crypto key generate rsa 
+1024
+
+line vty 0 15
+password sets123vty
+login local
+transport input ssh
+exit
+
+ip ssh version 2
+service password-encryption
+do wr
+
+
+
+===================================
+School 2
+===================================
+1st login pass: sbe290
+2nd login pass: admin290
+------------------------------------------
+>
+enable password sbe123
+enable secret admin290
+
+line con 0
+password sbe123con
+login local
+line aux 0
+password sbe123aux
+login local
+
+ip domain-name sbe.iub.com
+username sbeRouter password sbe290
+banner motd "Unauthorized Access Prohibited   ~ iubADMIN"
+
+ crypto key generate rsa 
+1024
+
+line vty 0 15
+password sbe123vty
+login local
+transport input ssh
+exit
+
+ip ssh version 2
+service password-encryption
+do wr
+
+
+
+
+===================================
+School 3
+===================================
+1st login pass: sels290
+2nd login pass: admin290
+------------------------------------------
+>
+enable password sels123
+enable secret admin290
+
+line con 0
+password sels123con
+login local
+line aux 0
+password sels123aux
+login local
+
+ip domain-name sels.iub.com
+username selsRouter password sels290
+banner motd "Unauthorized Access Prohibited   ~ iubADMIN"
+
+ crypto key generate rsa 
+1024
+
+line vty 0 15
+password sels123vty
+login local
+transport input ssh
+exit
+
+ip ssh version 2
+service password-encryption
+do wr
+
+
+
+
+===================================
+School 4
+===================================
+1st login pass: slass290
+2nd login pass: admin290
+------------------------------------------
+>
+enable password slass123
+enable secret admin290
+
+line con 0
+password slass123con
+login local
+line aux 0
+password slass123aux
+login local
+
+ip domain-name slass.iub.com
+username slassRouter password slass290
+banner motd "Unauthorized Access Prohibited   ~ iubADMIN"
+
+ crypto key generate rsa 
+1024
+
+line vty 0 15
+password slass123vty
+login local
+transport input ssh
+exit
+
+ip ssh version 2
+service password-encryption
+do wr
+
+
+===================================
+School 5
+===================================
+1st login pass: spph290
+2nd login pass: admin290
+------------------------------------------
+>
+enable password spph123
+enable secret admin290
+
+line con 0
+password spph123con
+login local
+line aux 0
+password spph123aux
+login local
+
+ip domain-name spph.iub.com
+username spphRouter password spph290
+banner motd "Unauthorized Access Prohibited   ~ iubADMIN"
+
+ crypto key generate rsa 
+1024
+
+line vty 0 15
+password spph123vty
+login local
+transport input ssh
+exit
+
+ip ssh version 2
+service password-encryption
+do wr
+
+===================================
+School 6
+===================================
+1st login pass: sol290
+2nd login pass: admin290
+------------------------------------------
+>
+enable password sol123
+enable secret admin290
+
+line con 0
+password sol123con
+login local
+line aux 0
+password sol123aux
+login local
+
+ip domain-name sol.iub.com
+username solRouter password sol290
+banner motd "Unauthorized Access Prohibited   ~ iubADMIN"
+
+ crypto key generate rsa 
+1024
+
+line vty 0 15
+password sol123vty
+login local
+transport input ssh
+exit
+
+ip ssh version 2
+service password-encryption
+do wr
+
+
+
+===================================
+ADMINISTRATIVE ROUTER
+===================================
+1st login pass: admin290
+2nd login pass: admin290
+------------------------------------------
+>
+enable password admin123
+enable secret admin290
+
+line con 0
+password admin123con
+login local
+line aux 0
+password admin123aux
+login local
+
+ip domain-name admin.iub.com
+username adminRouter password admin290
+banner motd "Unauthorized Access Prohibited   ~ iubADMIN"
+
+crypto key generate rsa 
+1024
+
+line vty 0 15
+password admin123vty
+login local
+transport input ssh
+exit
+
+ip ssh version 2
+service password-encryption
+do wr
+
+
+
+
+===================================
+IUB MAIN ROUTER
+===================================
+1st login pass: iub290
+2nd login pass: admin290
+------------------------------------------
+>
+enable password iub123
+enable secret admin290
+
+line con 0
+password iub123con
+login local
+line aux 0
+password iub123aux
+login local
+
+ip domain-name iub.com
+username iubRouter password iub290
+banner motd "Unauthorized Access Prohibited   ~ iubADMIN"
+
+crypto key generate rsa 
+1024
+
+line vty 0 15
+password iub123vty
+login local
+transport input ssh
+exit
+
+ip ssh version 2
+service password-encryption
+do wr
+
+
+
+
+
+

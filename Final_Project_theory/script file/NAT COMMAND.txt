@@ -1,0 +1,249 @@
+!! School-02 Configuration
+......................................................
+
+
+
+interface gig6/0.10
+ ip nat inside
+!
+interface fa0/0
+ ip nat outside
+!
+ip nat pool admininstrative_room 171.122.12.74 171.122.12.74 netmask 255.255.255.248
+access-list 2 permit 192.168.38.0 0.0.0.63
+ip nat inside source list 2 pool admininstrative_room overload
+
+interface gig6/0.20
+ ip nat inside
+!
+ip nat pool faculty_room 171.122.12.75 171.122.12.75 netmask 255.255.255.248
+access-list 2 permit 192.168.38.64 0.0.0.63
+ip nat inside source list 2 pool faculty_room overload
+
+interface gig6/0.30
+ ip nat inside
+!
+ip nat pool class_room 171.122.12.76 171.122.12.76 netmask 255.255.255.248
+access-list 2 permit 192.168.38.128 0.0.0.63
+ip nat inside source list 2 pool class_room overload
+
+interface gig6/0.40
+ ip nat inside
+!
+ip nat pool lab_room 171.122.12.77 171.122.12.77 netmask 255.255.255.248
+access-list 2 permit 192.168.38.192 0.0.0.63
+ip nat inside source list 2 pool lab_room overload
+
+
+
+
+!! School-03 Configuration
+............................................................................
+
+
+
+interface gig6/0.10
+ ip nat inside
+!
+interface fa0/0
+ ip nat outside
+!
+ip nat pool admininstrative_room 171.122.12.82 171.122.12.82 netmask 255.255.255.248
+access-list 3 permit 192.168.37.0 0.0.0.63
+ip nat inside source list 3 pool admininstrative_room overload
+
+interface gig6/0.20
+ ip nat inside
+!
+ip nat pool faculty_room 171.122.12.83 171.122.12.83 netmask 255.255.255.248
+access-list 3 permit 192.168.37.64 0.0.0.63
+ip nat inside source list 3 pool faculty_room overload
+
+interface gig6/0.30
+ ip nat inside
+!
+ip nat pool class_room 171.122.12.84 171.122.12.84 netmask 255.255.255.248
+access-list 3 permit 192.168.37.128 0.0.0.63
+ip nat inside source list 3 pool class_room overload
+
+interface gig6/0.40
+ ip nat inside
+!
+ip nat pool lab_room 171.122.12.85 171.122.12.85 netmask 255.255.255.248
+access-list 3 permit 192.168.37.192 0.0.0.63
+ip nat inside source list 3 pool lab_room overload
+
+
+
+!! School-04 Configuration
+................................................................
+
+
+interface gig6/0.10
+ ip nat inside
+
+interface fa0/0
+ ip nat outside
+
+ip nat pool admininstrative_room 171.122.12.90 171.122.12.90 netmask 255.255.255.248
+access-list 4 permit 192.168.36.0 0.0.0.63
+ip nat inside source list 4 pool admininstrative_room overload
+
+interface gig6/0.20
+ ip nat inside
+
+ip nat pool faculty_room 171.122.12.91 171.122.12.91 netmask 255.255.255.248
+access-list 4 permit 192.168.36.64 0.0.0.63
+ip nat inside source list 4 pool faculty_room overload
+
+interface gig6/0.30
+ ip nat inside
+
+ip nat pool class_room 171.122.12.92 171.122.12.92 netmask 255.255.255.248
+access-list 4 permit 192.168.36.128 0.0.0.63
+ip nat inside source list 4 pool class_room overload
+
+interface gig6/0.40
+ ip nat inside
+
+ip nat pool lab_room 171.122.12.93 171.122.12.93 netmask 255.255.255.248
+access-list 4 permit 192.168.36.192 0.0.0.63
+ip nat inside source list 4 pool lab_room overload
+
+
+
+
+
+!! School-05 Configuration
+....................................................................
+
+
+
+interface gig6/0.10
+ ip nat inside
+
+interface fa0/0
+ ip nat outside
+
+ip nat pool admininstrative_room 171.122.12.98 171.122.12.98 netmask 255.255.255.248
+access-list 5 permit 192.168.35.0 0.0.0.63
+ip nat inside source list 5 pool admininstrative_room overload
+
+interface gig6/0.20
+ ip nat inside
+
+ip nat pool faculty_room 171.122.12.99 171.122.12.99 netmask 255.255.255.248
+access-list 5 permit 192.168.35.64 0.0.0.63
+ip nat inside source list 5 pool faculty_room overload
+
+interface gig6/0.30
+ ip nat inside
+
+ip nat pool class_room 171.122.12.100 171.122.12.100 netmask 255.255.255.248
+access-list 5 permit 192.168.35.128 0.0.0.63
+ip nat inside source list 5 pool class_room overload
+
+interface gig6/0.40
+ ip nat inside
+
+ip nat pool lab_room 171.122.12.101 171.122.12.101 netmask 255.255.255.248
+access-list 5 permit 192.168.35.192 0.0.0.63
+ip nat inside source list 5 pool lab_room overload
+
+
+
+
+!! School-06 Configuration
+........................................................
+
+interface gig6/0.10
+ ip nat inside
+
+interface fa0/0
+ ip nat outside
+
+ip nat pool admininstrative_room 171.122.12.106 171.122.12.106 netmask 255.255.255.248
+access-list 6 permit 192.168.34.0 0.0.0.63
+ip nat inside source list 6 pool admininstrative_room overload
+
+interface gig6/0.20
+ ip nat inside
+
+ip nat pool faculty_room 171.122.12.107 171.122.12.107 netmask 255.255.255.248
+access-list 6 permit 192.168.34.64 0.0.0.63
+ip nat inside source list 6 pool faculty_room overload
+
+interface gig6/0.30
+ ip nat inside
+
+ip nat pool class_room 171.122.12.108 171.122.12.108 netmask 255.255.255.248
+access-list 6 permit 192.168.34.128 0.0.0.63
+ip nat inside source list 6 pool class_room overload
+
+interface gig6/0.40
+ ip nat inside
+
+ip nat pool lab_room 171.122.12.109 171.122.12.109 netmask 255.255.255.248
+access-list 6 permit 192.168.34.192 0.0.0.63
+ip nat inside source list 6 pool lab_room overload
+
+
+
+
+
+
+
+
+!! Administrative Division Configuration
+.............................................................
+
+int gig6/0.10
+ip nat inside
+int fa0/0
+ip nat outside
+ip nat pool executive 171.122.12.114 171.122.12.114 netmask 255.255.255.248
+access-list 7 permit 192.168.33.0 0.0.0.63
+ip nat inside source list 7 pool executive overload
+
+int gig6/0.20
+ip nat inside
+int fa0/0
+ip nat outside
+ip nat pool hr_admin 171.122.12.115 171.122.12.115 netmask 255.255.255.248
+access-list 7 permit 192.168.33.64 0.0.0.63
+ip nat inside source list 7 pool hr_admin overload
+
+int gig6/0.30
+ip nat inside
+int fa0/0
+ip nat outside
+ip nat pool accounts_payroll 171.122.12.116 171.122.12.116 netmask 255.255.255.248
+access-list 7 permit 192.168.33.128 0.0.0.63
+ip nat inside source list 7 pool accounts_payroll overload
+
+int gig6/0.40
+ip nat inside
+int fa0/0
+ip nat outside
+ip nat pool registration_admission 171.122.12.117 171.122.12.117 netmask 255.255.255.248
+access-list 7 permit 192.168.33.192 0.0.0.63
+ip nat inside source list 7 pool registration_admission overload
+
+
+
+
+
+ssh configuration 
+
+hostname Router1
+ip domain-name example.com
+crypto key generate rsa
+ip ssh version 2
+username admin privilege 15 secret MyPassword123
+line vty 0 4
+login local
+transport input ssh
+ip ssh time-out 60
+ip ssh authentication-retries 2
+write memory
+

@@ -1,0 +1,59 @@
+! Configure NAT pools
+ip nat pool s1_POOL 171.122.12.65 171.122.12.70 netmask 255.255.255.248
+ip nat pool s2_POOL 171.122.12.73 171.122.12.78 netmask 255.255.255.248
+ip nat pool s3_POOL 171.122.12.81 171.122.12.86 netmask 255.255.255.248
+ip nat pool s4_POOL 171.122.12.89 171.122.12.94 netmask 255.255.255.248
+ip nat pool s5_POOL 171.122.12.97 171.122.12.102 netmask 255.255.255.248
+ip nat pool s6_POOL 171.122.12.105 171.122.12.110 netmask 255.255.255.248
+ip nat pool admin_POOL 171.122.12.113 171.122.12.118 netmask 255.255.255.248
+
+! Configure access lists for private networks
+access-list 1 permit 192.168.64.0 0.0.0.255
+access-list 2 permit 192.168.65.0 0.0.0.255
+access-list 3 permit 192.168.66.0 0.0.0.255
+access-list 4 permit 192.168.67.0 0.0.0.255
+access-list 5 permit 192.168.68.0 0.0.0.255
+access-list 6 permit 192.168.69.0 0.0.0.255
+access-list 7 permit 192.168.70.0 0.0.0.255
+
+! NAT overload configuration for each school and division
+ip nat inside source list 1 pool s1_POOL overload
+ip nat inside source list 2 pool s2_POOL overload
+ip nat inside source list 3 pool s3_POOL overload
+ip nat inside source list 4 pool s4_POOL overload
+ip nat inside source list 5 pool s5_POOL overload
+ip nat inside source list 6 pool s6_POOL overload
+ip nat inside source list 7 pool admin_POOL overload
+
+! Interface NAT configurations
+interface GigabitEthernet1/0
+ description Inside interface for SETS ROUTER
+ ip nat inside
+
+interface GigabitEthernet2/0
+ description Inside interface for SBE ROUTER
+ ip nat inside
+
+interface GigabitEthernet3/0
+ description Inside interface for SELS ROUTER
+ ip nat inside
+
+interface GigabitEthernet4/0
+ description Inside interface for SLASS ROUTER
+ ip nat inside
+
+interface GigabitEthernet5/0
+ description Inside interface for SPPH ROUTER
+ ip nat inside
+
+interface GigabitEthernet6/0
+ description Inside interface for SOL ROUTER
+ ip nat inside
+
+interface GigabitEthernet7/0
+ description Inside interface for ADMINISTRATIVE ROUTER
+ ip nat inside
+
+interface Serial9/0
+ description Outside interface to ISP ROUTER
+ ip nat outside
